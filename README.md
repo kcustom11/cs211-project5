@@ -16,11 +16,18 @@ searching: unsortedArrayList(faster than)linked list(faster than)sorted ArrayLis
 however the searching seems to vary a bit based on where the Waldo String shows up (early or later)
 
 seeded waldo
-done adding 10000 people in sorted linked list in 		498617966
-done adding 10000 people in unsorted ArrayList in 		5549117
-done adding 10000 people in unsorted small array in 		4834568
-done adding 10000 people in sorted ArrayList in 		2313307119
-done searching linked list for LLNode@7f31245a in 		1021778
-done searching unsortedArrayList for 6340 in 			796007
-done searching sorted small array for 4660 in 			18411718
-done searching sortedArrayList for 4469 in 			1062755
+done adding 10000 people in sorted linked list in 	498617966
+
+done adding 10000 people in unsorted ArrayList in 	5549117
+
+done adding 10000 people in unsorted small array in 	4834568
+
+done adding 10000 people in sorted ArrayList in 	2313307119
+
+done searching linked list for LLNode@7f31245a in 	1021778
+
+done searching unsortedArrayList for 6340 in 		796007
+
+done searching sorted small array for 4660 in 		18411718
+
+done searching sortedArrayList for 4469 in 		1062755
