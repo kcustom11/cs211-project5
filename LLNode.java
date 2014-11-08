@@ -2,38 +2,39 @@
 public class LLNode implements Node {
 	private Comparable data;
 	private LLNode head;
-    public LLNode next;
-    private LLNode prev;
-    //private static int listCount;
-    
-    public LLNode() {
-    }
-    
-    public LLNode(Comparable data) {
-        this.head = this;
-    	this.data = data;
-        this.next = null;
-        this.prev = head;
-    }
+	public LLNode next;
+	private LLNode prev;
+	//private static int listCount;
+
+	public LLNode() {
+
+	}
+
+	public LLNode(Comparable data) {
+		this.head = this;
+		this.data = data;
+		this.next = null;
+		this.prev = head;
+	}
 	public void setData(Comparable data) { 
-    	this.data = data;
-    }
-    public Comparable getData() { 
-    	return data; 
-    }
-    public void setNext(Node next){
-    	this.next = (LLNode)next;
-    }
-    public Node getNext(){
-    	return (Node)this.next;
-    }
+		this.data = data;
+	}
+	public Comparable getData() { 
+		return data; 
+	}
+	public void setNext(Node next){
+		this.next = (LLNode)next;
+	}
+	public Node getNext(){
+		return (Node)this.next;
+	}
 	public void setPrev(Node prev) {
 		this.prev = (LLNode)prev;
 	}
 	public Node getPrev() {
 		return (Node)this.prev;
 	}
-	
+
 	//returns the start/head of the node
 	@SuppressWarnings("unchecked")
 	public Node add(Node thing) {
@@ -85,7 +86,7 @@ public class LLNode implements Node {
 		}
 		return null;
 	}
-	
+
 	public static void main(String args[]) {
 		Person p = new Person("A", 80);
 		Person p2 = new Person("B", 80);
