@@ -1,20 +1,19 @@
 
 public class LLNode implements Node {
 	private Comparable data;
-	private Node head;
-    private Node next;
-    private Node prev;
-    private static int listCount;
+	private LLNode head;
+    public LLNode next;
+    private LLNode prev;
+    //private static int listCount;
     
     public LLNode() {
     }
     
     public LLNode(Comparable data) {
-        this.head = new LLNode();
+        this.head = this;
     	this.data = data;
         this.next = null;
         this.prev = head;
-        listCount++;
     }
 	public void setData(Comparable data) { 
     	this.data = data;
@@ -26,36 +25,31 @@ public class LLNode implements Node {
     	this.next = (LLNode)next;
     }
     public Node getNext(){
-    	return this.next;
+    	return (Node)this.next;
     }
 	public void setPrev(Node prev) {
 		this.prev = (LLNode)prev;
 	}
 	public Node getPrev() {
-		return this.prev;
+		return (Node)this.prev;
 	}
 	
 	//returns the start/head of the node
+	@SuppressWarnings("unchecked")
 	public Node add(Node thing) {
 		LLNode node = (LLNode)thing;
 		LLNode current = (LLNode) head;
-		//if empty list
-		if (listCount == 0) {
-			head = node;
-			return node;
-		}
 		//check thing against the head node
-		else if (node.data.compareTo(head) < 0) {
+		if (node.getData().compareTo(head.getData()) <= 0) {
 			node.setNext(head);
 			node.setPrev(node);
 			head.setPrev(node);
 			head = node;
-			listCount++;
 			return head;
 		}
 		//check all items up until the last item
 		while (current.next != null) {
-			if (node.getData().compareTo(current) > 0) {
+			if (node.getData().compareTo(current.getData()) >= 0) {
 				current = (LLNode)current.getNext();
 			}
 			else {
@@ -63,24 +57,21 @@ public class LLNode implements Node {
 				node.setNext(current);
 				current.prev.setNext(node);
 				current.setPrev(node);
-				listCount++;
 				return head;
 			}
 		}
 		//arrive to the end of the list so current.next==null
-		if (node.getData().compareTo(current) < 0) {
+		if (node.getData().compareTo(current.getData()) <= 0) {
 			node.setNext(current);
 			node.setPrev(current.prev);
+			current.prev.setNext(node);
 			current.setPrev(node);
-			current.setNext(null);
-			listCount++;
 			return head;
 		}
 		else {
 			current.setNext(node);
 			node.setPrev(current);
 			node.setNext(null);
-			listCount++;
 			return head;
 		}
 	}
@@ -93,5 +84,30 @@ public class LLNode implements Node {
 			else current = (LLNode)current.getNext();
 		}
 		return null;
+	}
+	
+	public static void main(String args[]) {
+		Person p = new Person("A", 80);
+		Person p2 = new Person("B", 80);
+		Person p3 = new Person("C", 80);
+		Person p4 = new Person("D", 80);
+		Person p5 = new Person("E", 80);
+		System.out.println(p3.compareTo(p));
+		LLNode start = new LLNode(p);
+		start = (LLNode) start.add(new LLNode(p2));
+		start = (LLNode) start.add(new LLNode(p3));
+		start = (LLNode) start.add(new LLNode(p4));
+		start = (LLNode) start.add(new LLNode(p5));
+		System.out.println(start.getData().toString());
+		start = (LLNode) start.getNext();
+		System.out.println(start.getData().toString());
+		start = (LLNode) start.getNext();
+		System.out.println(start.getData().toString());
+		start = (LLNode) start.getNext();
+		System.out.println(start.getData().toString());
+		start = (LLNode) start.getNext();
+		System.out.println(start.getData().toString());
+		start = (LLNode) start.getNext();
+		System.out.println(start.getData().toString());
 	}
 }
