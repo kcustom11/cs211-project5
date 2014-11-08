@@ -1,39 +1,18 @@
 
 public class LLNode implements Node {
-<<<<<<< HEAD
 	private Comparable data;
 	private LLNode head;
 	public LLNode next;
 	private LLNode prev;
-	//private static int listCount;
 
-	public LLNode() {
-
-	}
-
+	public LLNode() {}
+	
 	public LLNode(Comparable data) {
 		this.head = this;
 		this.data = data;
 		this.next = null;
 		this.prev = head;
 	}
-=======
-    private Comparable data;
-    private LLNode head;
-    public LLNode next;
-    private LLNode prev;
-    //private static int listCount;
-    
-    public LLNode() {
-    }
-    
-    public LLNode(Comparable data) {
-        this.head = this;
-    	this.data = data;
-        this.next = null;
-        this.prev = head;
-    }
->>>>>>> FETCH_HEAD
 	public void setData(Comparable data) { 
 		this.data = data;
 	}
@@ -94,6 +73,7 @@ public class LLNode implements Node {
 			return head;
 		}
 	}
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Node search(Comparable item) {
 		LLNode current = (LLNode) head;
 		while (current != null) {
