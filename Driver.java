@@ -139,7 +139,7 @@ public class Driver{
             	found = true;     // Found it. return position
     	}
 		long end = System.nanoTime();     	
-     	System.out.println( "done searching sorted small array for  " + mid + " in \t\t" + (end-begin));
+     	System.out.println( "done searching sorted small array for " + mid + " in \t\t\t" + (end-begin));
 	}
 
 }	
