@@ -1,7 +1,7 @@
 
 public class LLNode implements Node {
-	private Comparable data;
-	private LLNode head;
+    private Comparable data;
+    private LLNode head;
     public LLNode next;
     private LLNode prev;
     //private static int listCount;
