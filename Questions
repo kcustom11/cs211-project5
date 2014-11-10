@@ -1,6 +1,7 @@
 
 1. Why is the sorted ArrayList slower to add to than the Linked List?
 The items in an ArraysList are ordered in memory. For a sorted ArrayList, everytime an object is added, the memory addresses of the objects following the location of the added item, must be moved forward in memory. This is memory intensive. A Linked List creates a new memory address for the added object, which then points to the next object in the list, and the previous object is pointed at the new object.
+ArrayLists are efficient in accessing objects because if you know an index, you can access that space in memory. However they are inefficient in adding data because they are 1. fixed in size and 2. adding new indices requires the copying of all the data to a new array with the new object inserted.
 
 2. I thought we said that arrays are slow. Why is add so quick for the unsorted array? What kind of search is the sorted array using? Is it the same as the others?
 In an unsorted array the objects are added to memory in sequentially where they don't have to be sorted. The search for a small array is different in that it first sorts the array, which is memory intensive, and then searches the sorted list by using the compare function to see if the object is in the top half or bottom half. This is looped over and over until the item is found. The search method is faster than comparing each item in the list one by one, but it requires a list to be sorted.
