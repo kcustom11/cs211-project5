@@ -1,17 +1,17 @@
 
 public class LLNode implements Node {
 	private Comparable data;
-	private LLNode head;
+	//private LLNode head;
 	public LLNode next;
 	private LLNode prev;
-
+	
 	public LLNode() {}
 	
 	public LLNode(Comparable data) {
-		this.head = this;
+		//this.head = this;
 		this.data = data;
 		this.next = null;
-		this.prev = head;
+		this.prev = this;
 	}
 	public void setData(Comparable data) { 
 		this.data = data;
@@ -36,7 +36,11 @@ public class LLNode implements Node {
 	@SuppressWarnings("unchecked")
 	public Node add(Node thing) {
 		LLNode node = (LLNode)thing;
-		LLNode current = (LLNode) head;
+		LLNode current = this;
+		//count backwards to find the head node. save it for later
+		while (current.prev != current)
+			current = current.prev;
+		LLNode head = current;
 		//check thing against the head node
 		if (node.getData().compareTo(head.getData()) <= 0) {
 			node.setNext(head);
@@ -75,7 +79,10 @@ public class LLNode implements Node {
 	}
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Node search(Comparable item) {
-		LLNode current = (LLNode) head;
+		LLNode current = this;
+		//count backwards to find the head node. save it for later
+		while (current.prev != current)
+			current = current.prev;
 		while (current != null) {
 			if (item.compareTo(current.getData()) == 0) {
 				return current;
